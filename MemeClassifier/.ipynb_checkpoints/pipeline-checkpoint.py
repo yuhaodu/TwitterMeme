@@ -2,6 +2,7 @@
 
 This is a file for training the meme_classifier which combines the image feature and text feature.
 
+# skip 114
 
 """
 import pandas as pd 
@@ -36,16 +37,13 @@ import csv
 import matplotlib.pyplot as plt
 import help as hp
 import zipfile
-from multiprocessing import Process
-import multiprocessing
-
-print('Cpu number is: {}'.format(multiprocessing.cpu_count()))
+import sys,traceback
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 model_dir = '/data/yuhao/web_sci/meme_classifier/checkpoint/model_text_image.pth'
 
-threshold = 0.31 #0.31037354 #0.2543277
+threshold = 0.31037354 #0.2543277
 
 ## Loading the pretrained word embedding matrix and backbone for model initiation
 
@@ -70,15 +68,16 @@ composed_vali = transforms.Compose([transforms.Resize((224,224)),transforms.ToTe
 model = mm.Meme_classifier(backbone,matrix,cu.hidden_size2,cu.hidden_size,cu.batch_size)
 checkpoint = torch.load(model_dir)   # load the model
 model.load_state_dict(checkpoint['model_state'])
-model.cuda()
 
 
 
-def meme_selection(file_num,threshold):
+
+def meme_selection(file_num,model,threshold):
     """
     Extract memes from zip file
     write the name of the image into file
     """
+    model.cuda() # send model to gpu
     file_str = str(file_num)
     o_num = 5 - len(file_str)
     for i in range(o_num):
@@ -106,6 +105,8 @@ def meme_selection(file_num,threshold):
     name_list = []
     save_dict = {}
     for (train_,name,text_,leng,status,text_2,leng_2) in image_loader:
+        if train_.size()[0] == 1:
+            continue
         train_ = train_.cuda()
         text_ = text_.type(torch.LongTensor).cuda()
         status = status.view([-1,1]).type(torch.FloatTensor).cuda()
@@ -137,28 +138,20 @@ def meme_selection(file_num,threshold):
     meme_num = len(index)
     return name_list[index],file_str,image_num, meme_num, save_dict
 
-def comsumer(file_list,model,threshold):
+file_1 = open('/data/yuhao/download/image_data/missed_file_2.txt')
+lines = file_1.readlines()
+missed = []
+for i in lines:
+    missed.append(int(i))
+print(missed)
 
-    for i in file_list:
-        _,file_str,_,_,save_dict =meme_selection(i,threshold)
-        json.dump(save_dict,open('/data/yuhao/download/image_data/meme_stat/{}_stat.json'.format(file_str),'w'))
-
-
-file_list = list(range(0,4))
-
-file_chunk = np.array_split(file_list,4)
-
-start_time = time.time()
-procs = []
-for i in file_chunk:
-    proc = Process(target = comsumer, args = (i,threshold))
-    procs.append(proc)
-
-for i in procs:
-    i.start()
-
-end_time = time.time()
-print('Using time :{}s '.format(end_time - start_time))
-
-
-
+for i in missed:
+    start_time = time.time()
+    try:
+        name_list,file_str,image_num,meme_num,save_dict = meme_selection(i,model,threshold)
+        end_time = time.time()
+        json.dump(save_dict,open('/data/yuhao/download/image_data/addmeme_stat/{}_stat.json'.format(file_str),'w'))
+        print('Using time: {}'.format(end_time - start_time))
+        print('Image number is {}, meme number is {}, the proportion of meme in image is {}'.format(image_num,meme_num,meme_num/image_num))
+    except:
+        traceback.print_exc(file=sys.stdout)
