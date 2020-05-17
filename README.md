@@ -21,6 +21,13 @@ The  overall  structure  of  our  multimodal  neural network is shown as below .
 
 ## Step 1
 
+After downloading the file, using following command to download the p
+
+```
+sh install.sh
+```
+Use 
+
 ## Step 2
 
 
