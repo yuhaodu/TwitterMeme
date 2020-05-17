@@ -1,12 +1,21 @@
 # Understanding Visual Memes: an Empirical Analysis of Text Superimposed on Memes Shared on Twitter
 
-This repository contains code to reproduce the IWT meme classifier presented in the paper Understanding Visual Memes: an Empirical Analysis of Text Superimposed on Memes Shared on Twitter (ICWSM 2020):
+This repository contains code and instruction to reproduce the IWT meme classifier pipeline presented in the paper **Understanding Visual Memes: an Empirical Analysis of Text Superimposed on Memes Shared on Twitter (ICWSM 2020)**. For those who want analyze IWT memes and use our code, please cite the paper! Thank you.  
+
+Given a dataset of images shared on social media, we develop a two-step pipeline to identify IWT memes. 
+
+
+<ol>
+<li>The first step  of  our  pipeline  is  to use  the  Optical Character Recognition (OCR) engine Tesseract [1] to filter out all images that do not contain text.</li>
+<li>The second uses a supervised classifier to distinguish, amongst the remaining images, those that are IWT memes from those that are not.</li>
+</ol>
+ 
+
+The  overall  structure  of  our  multimodal  neural network is shown . First, input images are fed into pretrained neural networks to extract visual feature and textual features. We then concatenate these two feature vectors into a single mutlimodal feature representation and use a final neural network to perform classification.
+
 <br />
 ![neural_network_image ](image/neural_network.png)
 <br />
-Given a dataset of images shared on social media, we develop a two-step pipeline to identify IWT memes. The first step  of  our  pipeline  is  to use  the  Optical Character Recognition (OCR) engine Tesseract [1] to filter out all images that do not contain text. The second uses a supervised classifier to distinguish, amongst the remaining images, those that are IWT memes from thosethat are not. 
-
-
 
 
 
