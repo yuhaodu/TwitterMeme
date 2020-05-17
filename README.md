@@ -19,9 +19,9 @@ Given a dataset of images shared on social media, we develop a two-step pipeline
 The  overall  structure  of  our  multimodal  neural network is shown as below . First, input images are fed into pretrained neural networks to extract visual feature and textual features. We then concatenate these two feature vectors into a single mutlimodal feature representation and use a final neural network to perform classification. 
 ![neural_network_image](image/neural_network.png)
 
-## Run step one of the pipeline
+## Step 1
 
-## Run step two of the pipeline
+## Step 2
 
 
 
