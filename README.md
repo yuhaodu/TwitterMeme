@@ -5,8 +5,8 @@ This repository contains code and instruction to reproduce the IWT meme classifi
 ## Content
 
 1. Introduction to two-step meme classification pipeline
-2. Run step one of the pipeline
-3. Run step two of the pipeline
+2. Step 1
+3. Step 2
 
 
 ## Introduction to two-step meme classification pipeline
