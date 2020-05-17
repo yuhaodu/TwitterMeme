@@ -2,6 +2,7 @@
 
 This repository contains code and instruction to reproduce the IWT meme classifier pipeline presented in the paper **Understanding Visual Memes: an Empirical Analysis of Text Superimposed on Memes Shared on Twitter (ICWSM 2020)**. For those who want analyze IWT memes and use our code, please cite the paper! Thank you.  
 
+## Introduction
 Given a dataset of images shared on social media, we develop a two-step pipeline to identify IWT memes. <br />
 
 
