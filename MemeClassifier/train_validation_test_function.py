@@ -4,7 +4,7 @@ This is a function for train_validation_test function
 import torch
 import torch.nn as nn
 import json
-import classifier_utils as cu
+import parameters as p
 import torch.nn.functional as F
 import os
 import glob
