@@ -4,4 +4,4 @@ This repository contains code to reproduce the IWT meme classifier presented in 
 <br />
 ![neural_network_image ](image/neural_network.png)
 <br />
-We present 
+We present a multimodal neural network to filter images that belongs to 
