@@ -4,4 +4,13 @@ This repository contains code to reproduce the IWT meme classifier presented in 
 <br />
 ![neural_network_image ](image/neural_network.png)
 <br />
-We present a multimodal neural network to filter images that belongs to 
+Given a dataset of images shared on social media, we develop a two-step pipeline to identify IWT memes. The firststep  of  our  pipeline  is  to use  the  Optical Character Recognition (OCR) engine Tesseract [1] to filter out all images that do not contain text. Thesecond uses a supervised classifier to distinguish, amongstthe remaining images, those that are IWT memes from thosethat are not. 
+
+
+
+
+
+
+
+# Reference
+[1] Smith, R., Antonova, D., & Lee, D. (2009). Adapting the Tesseract open source OCR engine for multilingual OCR. MOCR '09.
