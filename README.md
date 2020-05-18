@@ -21,7 +21,7 @@ The  overall  structure  of  our  multimodal  neural network is shown as below .
 
 ## Step 1
 
-Run`sh install.sh`from this directory to pull down the GloVe and to install a few packages. <br />
+Run`install.sh`from this directory to pull down the GloVe and to install a few packages. <br />
 And then run the following codes to filter out images without any superimposed texts and move images with texts to '../data/Image_with_Text'
 ```
 cd step1
