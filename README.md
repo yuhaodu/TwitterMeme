@@ -21,12 +21,12 @@ The  overall  structure  of  our  multimodal  neural network is shown as below .
 
 ## Step 1
 
-After downloading the file, using following command to download the p
-
+Run`sh install.sh`from this directory to pull down the GloVe and to install a few packages. <br />
+And then run 
 ```
-sh install.sh
+cd step1
+python filter.py --input_dir=
 ```
-Use 
 
 ## Step 2
 
