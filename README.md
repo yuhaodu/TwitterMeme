@@ -25,7 +25,7 @@ Run`install.sh`from this directory to pull down the GloVe and to install a few p
 And then run the following codes to filter out images without any superimposed texts and move images with texts to '../data/Image_with_Text'
 ```
 cd step1
-python filter.py --input_dir=[your own image directory]
+python filter.py --input_dir=[image_directory]
 ```
 
 ## Step 2
