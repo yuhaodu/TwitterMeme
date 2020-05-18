@@ -30,7 +30,7 @@ The scripts will first pull down the GloVe and to install a few packages <br />
 After that, running `filter.py` will forward input images to Tesseract to filter out images without any superimposed texts. The remaining images are moved into '../data/Image_with_Text' directory. Besides that, texts extracted by Tesseract are preprocessed by [SpaCy](https://spacy.io/) and stored at '../data/name_text.pkl' using dictionary form. The keys of the dictionary are the names of images and values are preprocessed texts that are extracted from them.  
 
 ## Step 2
-After finishing the step1, download the Pretrained Model at [Link](https://drive.google.com/open?id=1uNju_ZNTYvqOxFbfJyHwxcMMgdsawEGG) and put the pretrained model at '../data/im'. Then run following command from the current directory to condcut the step2 of the pipeline.
+After finishing the step1, download the Pretrained Model at [Link](https://drive.google.com/open?id=1uNju_ZNTYvqOxFbfJyHwxcMMgdsawEGG) and put the pretrained model at '../data' directory. Then run following commands from the current directory to conduct the step2 of the pipeline.
 ```
 cd ../step2_MemeClassifier
 python classification.py
