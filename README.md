@@ -20,13 +20,14 @@ The  overall  structure  of  our  multimodal  neural network is shown as below .
 ![neural_network_image](image/neural_network.png)
 
 ## Step 1
-
-Run`install.sh`from this directory to pull down the GloVe and to install a few packages. <br />
-And then run the following codes to filter out images without any superimposed texts and move images with texts to '../data/Image_with_Text'
+After cloning the repo, run following command from this directory to perform the step1 of the pipeline.
 ```
+sh install.sh
 cd step1
 python filter.py --input_dir=[image_directory]
 ```
+The scripts will first pull down the GloVe and to install a few packages <br />
+After that, running `filter.py` will forward input images to Tesseract to filter out images without any superimposed texts. The remaining images are moved into '../data/Image_with_Text' directory. Besides that, texts extracted by Tesseract are preprocessed by [SpaCy](https://spacy.io/) and stored at '../data/name_text.pkl' using dictionary form. The keys of the dictionary are the names of images and values are preprocessed texts that are extracted from them.  
 
 ## Step 2
 
