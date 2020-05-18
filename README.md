@@ -25,7 +25,7 @@ Run`sh install.sh`from this directory to pull down the GloVe and to install a fe
 And then run 
 ```
 cd step1
-python filter.py --input_dir=
+python filter.py --input_dir=[your own image directory]
 ```
 
 ## Step 2
