@@ -69,10 +69,6 @@ except:
     os.mkdir('../data/nonIWTmeme')
 for i in IWTmeme_name:
     copyfile(os.path.join(test_root,i),os.path.join('./IWTmeme',i))
-<<<<<<< HEAD
-for i in nonIWTmeme_name:      copyfile(os.path.join(test_root,i),os.path.join('./nonIWTmeme',i))
-
-=======
 for i in nonIWTmeme_name:      
     copyfile(os.path.join(test_root,i),os.path.join('./nonIWTmeme',i))
->>>>>>> 23ce2870f3531dbad2a01ae967549cc5dbe80e6e
+
