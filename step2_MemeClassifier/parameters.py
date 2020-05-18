@@ -7,29 +7,15 @@ Created on Tue Dec 18 17:27:59 2018
 
 This is neural network configuration file
 """
-
-
 num_epoch = 1000
 batch_size = 32
 milestones = [2]
 max_len = 40
+input_dir='../data/Image_with_Text' # input images directory
+glove_dir='../data/glove.6B.zip'
+dict_dir='../data/name_text.pkl'
 
-hidden_size2 = 50 # hidden size for image feature
-hidden_size = 50 # hidden size for superimpoed text feature
-t_d='/data/yuhao/web_sci/meme_classifier/test/meme' # test_directory
-glove_dir = '/data/yuhao/web_sci/meme_classifier/glove.6B/'
 threshold =0.31037354
 mean = [0.579662,0.5555058,0.5413896]
 std =[0.3494197,0.3469673,0.35115704]
 model_dir = '/data/yuhao/checkpoint/model.pth'
-
-def write_log(dir_,log):
-    """
-    write log file
-    Input: dir_: the directory for writing the log file
-           log: the string log
-    """
-    with open(dir_,'a') as file:
-        file.write(log)
-        file.write('\n')
-    file.close()
