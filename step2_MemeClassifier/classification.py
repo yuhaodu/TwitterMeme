@@ -15,7 +15,6 @@ import MemeModel as mm
 import train_test as tt
 import csv
 import matplotlib.pyplot as plt
-import help as hp
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 from collections import OrderedDict
@@ -70,4 +69,5 @@ except:
     os.mkdir('../data/nonIWTmeme')
 for i in IWTmeme_name:
     copyfile(os.path.join(test_root,i),os.path.join('./IWTmeme',i))
-for i in nonIWTmeme_name:      copyfile(os.path.join(test_root,i),os.path.join('./nonIWTmeme',i))
+for i in nonIWTmeme_name:      
+    copyfile(os.path.join(test_root,i),os.path.join('./nonIWTmeme',i))
