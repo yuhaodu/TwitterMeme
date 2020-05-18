@@ -27,6 +27,7 @@ And then run
 cd step1
 python filter.py --input_dir=[your own image directory]
 ```
+to filter out images without any superimposed texts and move images with texts to '../data/Image_with_Text'
 
 ## Step 2
 
