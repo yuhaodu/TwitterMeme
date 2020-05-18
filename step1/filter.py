@@ -1,7 +1,6 @@
 from PIL import Image
 from pytesseract import image_to_string
 import os
-import arg
 import argparse
 
 parser = argparse.ArgumentParser()
