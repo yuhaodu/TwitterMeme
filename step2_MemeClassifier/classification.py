@@ -71,3 +71,4 @@ except:
 for i in IWTmeme_name:
     copyfile(os.path.join(test_root,i),os.path.join('./IWTmeme',i))
 for i in nonIWTmeme_name:      copyfile(os.path.join(test_root,i),os.path.join('./nonIWTmeme',i))
+
