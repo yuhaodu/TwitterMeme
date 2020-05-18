@@ -18,4 +18,4 @@ dict_dir='../data/name_text.pkl'
 threshold =0.31037354
 mean = [0.579662,0.5555058,0.5413896]
 std =[0.3494197,0.3469673,0.35115704]
-model_dir = '/data/yuhao/checkpoint/model.pth'
+model_dir = '../data/model_text_image.pth'
