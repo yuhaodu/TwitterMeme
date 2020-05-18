@@ -2,6 +2,7 @@ from PIL import Image
 from pytesseract import image_to_string
 import os
 import argparse
+import pickle
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--input_dir', default='')
@@ -9,6 +10,7 @@ args = parser.parse_args()
 input_d = args.input_dir
 os.mkdir('../data/Image_with_Text')
 image_list = os.listdir(input_d)
+dict_name_text = {}
 for i in image_list:
     
     img = Image.open(os.path.join(input_d,i))
