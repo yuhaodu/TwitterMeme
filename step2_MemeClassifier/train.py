@@ -64,7 +64,6 @@ for i in range(cu.num_epoch):
     model,epoch_loss,optimizer = tt.train(model,loss,gpu,optimizer,train_dataset)
     log = "{}th epoch------------------- loss is: {}".format(i+1,epoch_loss)
     if epoch_loss < start_loss:
-        start_auc = auc # give loss new value
         checkpoint = {'model_state': model.state_dict(),'criterion_state': loss.state_dict(), 'optimizer_state': optimizer.state_dict(),'epochs': i+1}
         torch.save(checkpoint, '../data/checkpoint.pth')
         start_loss = epoch_loss

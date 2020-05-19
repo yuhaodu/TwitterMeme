@@ -45,7 +45,7 @@ def train(model, loss, gpu, optimizer, dataset):
             output_ = model.forward(train_,text_)
             label_ = label_.view([-1,1]).type(torch.FloatTensor)
             output_ = output_.view([-1,1]).type(torch.FloatTensor)
-            loss_ = loss(output,label)
+            loss_ = loss(output_,label_)
             loss_.cuda() # send loss to GPU
         loss_.backward()
         optimizer.step()
