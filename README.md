@@ -44,7 +44,7 @@ python train.py --input_dir=[meme_directory] --dict_dir=[meme_text dictionary pi
 Trained model will be placed in the output directory that you specified. 
 
 ## Contact
-Feel free to contact me if you encounter any problem.
+Feel free to contact [me][yuhaodu@buffalo.edu] if you encounter any problem.
 
 
 
