@@ -46,6 +46,8 @@ Trained model will be placed in the output directory that you specified.
 ## Contact
 Feel free to contact [yuhaodu@buffalo.edu] if you encounter any problem.
 
+## Acknowledgements 
+This work was supported by a Google Cloud Platform Research Credit grant. We also gratefully acknowledge the support of NVIDIA Corporation with the donation of the GPU used for this research.
 
 
 ## Reference
