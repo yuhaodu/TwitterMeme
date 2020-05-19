@@ -37,7 +37,7 @@ python classification.py
 ```
 The scipts will forward extracted images to the multimodal neural IWT meme classification network. The identified IWT memes will be put in the '../data/IWTmeme' directory and the resutls of images will be put in the '../data/nonIWTmeme' directory. 
 ### Train your own model
-In order to train your IWT meme classifier, you have to first prepare the dataset which contains IWT memes and non IWT images and the binary labels for the dataset. Label has to be stored in a dictionary whose keys are image names and values are labels (0/1). And then the dictionary is stored using pickle. After these steps, run following command.
+In order to train your IWT meme classifier, you have to first prepare the dataset which contains IWT memes and non IWT images and the binary labels for the dataset. Label has to be stored in a dictionary pickle file whose keys are image names and values are labels (0/1). After these steps, run following command.
 ```
 python train.py --input_dir=[meme_directory] --dict_dir=[meme_text dictionary pickle file directory] --dict_label=[meme_label dictionary pickle file directory] --output_dir=[model_directory]
 ```
