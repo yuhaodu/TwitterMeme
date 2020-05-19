@@ -36,21 +36,15 @@ def train(model, loss, gpu, optimizer, dataset):
     model.train()
     current_loss = 0
     index = 1
-    for (train_,label,name,text_,leng, status,text_2,leng_2) in dataloader:
+    for (train_,text_,name_,label_) in dataloader:
         index += 1
         optimizer.zero_grad()
         if gpu:
-            train_, label, text_, status = train_.cuda(), label.cuda(), text_.type(torch.LongTensor).cuda(), status.view([-1,1]).type(torch.FloatTensor).cuda() # put data into GPU
-            text_2 = text_.type(torch.LongTensor).cuda()
-            #retweet = retweet.type(torch.FloatTensor).cuda()
-            #fc = fc.type(torch.FloatTensor).cuda()
+            train_, text_,label_= train_.cuda(),text_.type(torch.LongTensor).cuda(),label_.cuda()
             model = model.cuda() # put data into GPU
-            h0 = torch.zeros(1,train_.shape[0],cu.hidden_size).cuda()
-            c0 = torch.zeros(1,train_.shape[0],cu.hidden_size).cuda()
-            output = model.forward(train_,text_,h0,c0,status,text_2)
-            #_, preds = torch.max(output,1)
-            label = label.view([-1,1]).type(torch.FloatTensor)
-            output = output.view([-1,1]).type(torch.FloatTensor)
+            output_ = model.forward(train_,text_)
+            label_ = label_.view([-1,1]).type(torch.FloatTensor)
+            output_ = output_.view([-1,1]).type(torch.FloatTensor)
             loss_ = loss(output,label)
             loss_.cuda() # send loss to GPU
         loss_.backward()
