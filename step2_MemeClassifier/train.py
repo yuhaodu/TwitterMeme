@@ -26,13 +26,14 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--input_dir',help='meme directory')
 parser.add_argument('--dict_dir',help='{meme:text} dictionary')
-parset.add_argument('--dict_label',help='{meme:label} dictionary')
-
+parser.add_argument('--dict_label',help='{meme:label} dictionary')
+parser.add_argument('--output_dir',help='output_model directory')
 threshold = p.threshold
 glove_dir = p.glove_dir
 input_dir = parser.input_dir
 dict_dir = parser.dict_dir
 dict_dir2 = parser.dict_label
+output_dir = parser.output_dir
 
 with ZipFile(glove_dir,'r') as zip:
     zip.extract('glove.6B.50d.txt',path = '../data')
@@ -65,7 +66,7 @@ for i in range(cu.num_epoch):
     log = "{}th epoch------------------- loss is: {}".format(i+1,epoch_loss)
     if epoch_loss < start_loss:
         checkpoint = {'model_state': model.state_dict(),'criterion_state': loss.state_dict(), 'optimizer_state': optimizer.state_dict(),'epochs': i+1}
-        torch.save(checkpoint, '../data/checkpoint.pth')
+        torch.save(checkpoint, '{}/model.pth'.format(output_dir))
         start_loss = epoch_loss
     else:
         break
