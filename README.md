@@ -1,7 +1,25 @@
 # Understanding Visual Memes: an Empirical Analysis of Text Superimposed on Memes Shared on Twitter
 
-This repository contains code and instruction to reproduce the IWT meme classifier pipeline presented in the paper **Understanding Visual Memes: an Empirical Analysis of Text Superimposed on Memes Shared on Twitter (ICWSM 2020)**. For those who want analyze IWT memes and use our code, please cite the paper! Thank you.  
+This repository contains code and instruction to reproduce the IWT meme classifier pipeline presented in the paper [**Understanding Visual Memes: an Empirical Analysis of Text Superimposed on Memes Shared on Twitter (ICWSM 2020)**](https://www.aaai.org/ojs/index.php/ICWSM/article/view/7287). For those who want analyze IWT memes and use our code, please cite the paper! Thank you.  
+```
 
+@article{du_understanding_2020,
+	title = {Understanding {Visual} {Memes}: {An} {Empirical} {Analysis} of {Text} {Superimposed} on {Memes} {Shared} on {Twitter}},
+	volume = {14},
+	copyright = {Copyright (c) 2020 Association for the Advancement of Artificial Intelligence},
+	issn = {2334-0770},
+	shorttitle = {Understanding {Visual} {Memes}},
+	url = {https://www.aaai.org/ojs/index.php/ICWSM/article/view/7287},
+	language = {en},
+	urldate = {2020-06-11},
+	journal = {Proceedings of the International AAAI Conference on Web and Social Media},
+	author = {Du, Yuhao and Masood, Muhammad Aamir and Joseph, Kenneth},
+	month = may,
+	year = {2020},
+	pages = {153--164},
+}
+
+```
 ## Content
 
 1. Introduction to two-step meme classification pipeline
