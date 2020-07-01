@@ -20,8 +20,8 @@ import numpy as np
 from PIL import ImageFile
 from torch import optim
 
-class Meme_classifier(nn.Module):
-    def __init__(self,backbone,weight_matrix,hidden_size2, hidden_size ,batch_size):
+class MemeClassifier(nn.Module):
+    def __init__(self,backbone,weight_matrix):
         """
         Input:
             backbone: This the image feature extractor, we used pretrained model for this.
@@ -32,19 +32,15 @@ class Meme_classifier(nn.Module):
         """
         super(Meme_classifier, self).__init__()
         self.backbone = backbone
-        self.hidden_size = hidden_size
-        self.batch_size = batch_size
-        self.hidden_size2 = hidden_size2
-        self.fc1 = nn.Linear(2048,self.hidden_size2,bias = True)
+        self.fc1 = nn.Linear(2048,50,bias = True)
         self.relu1 = nn.ReLU()
-        self.bn1 = nn.BatchNorm1d(self.hidden_size2 + 50 )
+        self.bn1 = nn.BatchNorm1d(100 )
         ## extract text feature:
         self.input_size = weight_matrix.shape[1]
         self.embedding = nn.Embedding.from_pretrained(weight_matrix)
         self.embedding.weight.requires_grad = True
-        self.lstm = nn.LSTM(input_size = self.input_size, hidden_size = self.hidden_size ,batch_first = True)
         ## final extractor
-        self.fc2 = nn.Linear(50+self.hidden_size2,400,bias=True)
+        self.fc2 = nn.Linear(100,400,bias=True)
         self.relu2 = nn.ReLU()
         self.bn2 = nn.BatchNorm1d(400)
         self.fc3 = nn.Linear(400,200,bias=True)
