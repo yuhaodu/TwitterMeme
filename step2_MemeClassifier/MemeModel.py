@@ -48,7 +48,7 @@ class MemeClassifier(nn.Module):
         self.bn3 = nn.BatchNorm1d(200)
         self.fc4 = nn.Linear(200,1,bias =True)
         self.sigmoid = nn.Sigmoid()
-    def forward(self, x,y,h0,c0,status,z):
+    def forward(self, x,y):
         """
         Input: 
             x: image input. type: tensor after transform 
